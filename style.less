@@ -1,0 +1,95 @@
+header {
+    width: 100%;
+    min-height: 70px;
+    padding: 15px;
+    background-color: #F1F1F1;
+    border-bottom: 1px solid #E5E5E5;
+    > div {
+        float: left;
+    }
+    .brand h1 {
+        margin: 0px;
+        margin-right: 40px;
+    }
+    .search {
+        max-width: 400px;
+    }
+    .info {
+        float: right;
+        > * {
+            float: left;
+            margin-right: 10px;
+        }
+    }
+}
+section {
+    padding: 10px 1.5%;
+    .project-header {
+        border-bottom: 1px solid #E5E5E5;
+        min-height: 65px;
+        > * {
+            float: left;
+        }
+        .buttons {
+            float: right;
+            padding-top: 22px;
+            max-width: 300px;
+        }
+    }
+    .sidebar {
+        ul.icons-ul {
+            margin-left: 0px;
+        }
+    }
+    .file-view {
+
+
+    	font-family: 'Droid Sans Mono', sans-serif;
+        .property, .method {
+        	padding: 5px;
+        	&:hover {
+        		background-color: #eee;
+        	}
+        	.buttons {
+        		float: right;
+        		padding: 3px;
+        	}
+            .type {
+                float: left;
+                color: #339;
+            }
+            .name {
+                margin-right: 5px;
+                float: left;
+                color: #333;
+            }
+            .description {
+                clear: left;
+                color: #999;
+                min-height: 15px;
+            }
+        }
+
+        .method .arguments {
+        	padding-left: 30px;
+        	.argument {
+        		min-height: 20px;
+        	}
+        	.description {
+        		float: left;
+        		padding-left: 5px;
+        		clear: none;
+        	}
+        }
+    }
+
+    .file-details {
+    	.options {
+    		margin-bottom:10px;
+    	}
+    }
+}
+.input-styleless {
+    outline: none;
+    border: none;
+}
