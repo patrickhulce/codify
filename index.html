@@ -23,9 +23,9 @@
 <body ng-app="codify">
     <header>
         <div class="brand">
-            <h1>Blah</h1>
+            <img src='img/codify-logo-dark.png'/>
         </div>
-        <div class="search">
+        <div ng-show='false'class="search">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for something..." />
                 <span class="input-group-btn">
@@ -36,8 +36,9 @@
             </div>
         </div>
         <div class="info">
-            <button class="btn btn-primary"><i class="icon-user"></i> Sign Up</button>
-            <button class='btn btn-info'><i class="icon-gear"></i> Settings</a>
+            <a class="btn btn-primary" href='#/login'><i class="icon-user"></i> Login</a>
+            <a class="btn btn-info" href='#/projects'><i class="icon-folder-open"></i> Projects</a>
+            <a class='btn btn-info' href='#/settings'><i class="icon-gear"></i> Settings</a>
         </div>
         <div class="clearfix"></div>
     </header>

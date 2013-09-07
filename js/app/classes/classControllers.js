@@ -15,7 +15,6 @@ angular.module("classes.controllers", ['firebase', 'ui.utils'])
     ])
     .controller('ClassCtrl', ['$scope', 'angularFire',
         function($scope, angularFire) {
-            $scope.cleanView = true;
             $scope.getClass = function() {
                 var project = $scope.project;
                 var classId = $scope.selection.classId;
@@ -24,5 +23,6 @@ angular.module("classes.controllers", ['firebase', 'ui.utils'])
                     || project.classes === undefined) return undefined;
                 return project.classes[classId];
             };
+            $scope.cleanView = true;
         }
     ]);

@@ -5,7 +5,16 @@ angular.module("projects.controllers", ['firebase'])
             $scope.project = {};
             $scope.selection = {};
             var path = app.settings.firebaseUrl + 'projects/' + $scope.projectId;
-            angularFire(new Firebase(path),$scope,'project');
+            angularFire(new Firebase(path),$scope,'project').then(function(){
+            	var id = 'foo';
+            	for(var key in $scope.project.classes) {
+            		id = key;
+            		break;
+            	}
+            	console.log("Found key being " + id);
+            	if(id == 'foo') return;
+            	$scope.selection.classId = id;
+            });
         }
     ])
     .controller('ProjectListCtrl', ['$scope', 'angularFire',

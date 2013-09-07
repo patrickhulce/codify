@@ -1,9 +1,9 @@
 <div class="row">
     <div class="project-header col-md-12">
-        <h2>{{ project.name }}</h2>
+        <h2 contenteditable='true' ng-model='project.name'></h2>
         <div class="buttons">
             <div class="input-group">
-                <input type="text" class="form-control" readonly value="http://localhost:8000/#/projects/{{ projectId }}" />
+                <input type="text" class="form-control" onClick='this.select()' readonly value="http://localhost:8000/#/projects/{{ projectId }}" />
                 <span class="input-group-btn">
                     <button class="btn btn-primary"><i class="icon-share"></i> Share
                     </button>
@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="sidebar col-md-3">
+    <div class="sidebar col-sm-3">
         <h3>Classes</h3>
         <div ng-controller='ClassListCtrl'>
             <ul class="icons-ul">
@@ -28,24 +28,24 @@
             </ul>
         </div>
     </div>
-    <div class='class-view col-md-9' ng-controller='ClassCtrl'>
+    <div class='class-view col-sm-9' ng-controller='ClassCtrl'>
         <h3 ng-show='!getClass()'>Select a class</h3>
 
         <div ng-show='getClass()' class="class-details col-md-8">
             <div class='row header'>
-                <div class='col-md-9'>
+                <div class='col-sm-9'>
                     <h3 contenteditable='true' ng-model='project.classes[selection.classId].name'></h3>
                 </div>
-                <div class='col-md-3'>
+                <div class='col-sm-3'>
                     <button class='btn btn-info btn-sm' ng-click='cleanView = !cleanView'>
                         <i ng-class="{'icon-plus' : cleanView, 'icon-minus' : !cleanView}"></i>
                     </button>
                 </div>
             </div>
-            <div ng-controller='PropertyListCtrl'>
+            <div class='properties' ng-controller='PropertyListCtrl'>
                 <h4>Properties</h4>
                 <div class="property" ng-repeat='property in project.classes[selection.classId].properties'>
-                    <div class="buttons">
+                    <div ng-show='!cleanView' class="buttons">
                         <button class="btn btn-default" ng-disabled='$index == 0' ng-click='moveProperty($index,-1)'>
                             <i class="icon-arrow-up"></i>
                         </button>
@@ -60,14 +60,14 @@
                     <div class="type" contenteditable='true' ng-model='property.type'></div>
                     <div class="description" contenteditable='true' ng-model='property.description'></div>
                 </div>
-                <div class='add-property'>
+                <div ng-show='!cleanView' class='add-property'>
                     <button class='btn btn-sm btn-success' ng-click='addProperty()'><i class='icon-plus'></i> Add Property</button>
                 </div>
             </div>
             <div ng-controller='MethodListCtrl'>
                 <h4>Methods</h4>
                 <div class="method" ng-repeat='method in project.classes[selection.classId].methods' ng-controller='MethodCtrl'>
-                    <div class="buttons">
+                    <div ng-show='!cleanView' class="buttons">
                         <button class="btn btn-default" ng-disabled='$index == 0' ng-click='moveMethod($index,-1)'>
                             <i class="icon-arrow-up"></i>
                         </button>
@@ -83,7 +83,7 @@
                     <div class="description" contenteditable='true' ng-model='method.description'></div>
                     <div class='arguments'>
                         <div class="argument" ng-repeat='argument in method.arguments'>
-                            <div class="buttons">
+                            <div ng-show='!cleanView' class="buttons">
                                 <button class="btn btn-default btn-xs" ng-disabled='$index == 0' ng-click='moveArgument($index,-1)'>
                                     <i class="icon-arrow-up"></i>
                                 </button>
@@ -98,12 +98,12 @@
                             <div class="type" contenteditable='true' ng-model='argument.type'></div>
                             <div class="description" contenteditable='true' ng-model='argument.description'></div>
                         </div>
-                        <div class='add-argument'>
+                        <div ng-show='!cleanView' class='add-argument'>
                             <button class='btn btn-xs btn-success' ng-click='addArgument()'><i class='icon-plus'></i> Add Argument</button>
                         </div>
                     </div>
                 </div>
-                <div class='add-method'>
+                <div ng-show='!cleanView'  class='add-method'>
                     <button class='btn btn-sm btn-success' ng-click='addMethod()'><i class='icon-plus'></i> Add Method</button>
                 </div>
             </div>
@@ -115,6 +115,3 @@
 
     </div>
 </div>
-<pre>
-    {{project | json}}
-</pre>
