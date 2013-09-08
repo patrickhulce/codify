@@ -8,7 +8,7 @@ angular.module("properties.controllers", ['ui.utils'])
                 $scope.project.classes[classId].properties.push({
                     "name": "Name",
                     "type": "string",
-                    "description": "Default descrption"
+                    "description": "Default description"
                 });
             }
 
