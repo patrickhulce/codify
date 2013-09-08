@@ -26,6 +26,9 @@ angular.module("codify", ['projects.controllers', 'classes.controllers', 'proper
             });
             $scope.login = function() {
             	angularFireAuth.login('facebook');
+            };
+            $scope.logout = function() {
+            	angularFireAuth.logout();
             }
         }
     ]);

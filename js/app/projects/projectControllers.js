@@ -1,4 +1,4 @@
-angular.module("projects.controllers", ['firebase'])
+angular.module("projects.controllers", ['firebase','app.utils'])
     .controller('ProjectCtrl', ['$scope', '$routeParams', 'angularFire',
         function($scope, $routeParams, angularFire) {
             $scope.projectId = $routeParams.projectId;

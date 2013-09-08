@@ -68,6 +68,18 @@
                 }
             };
         })
+        .directive('fbShare', function() {
+            return {
+                link: function(scope, elm, attrs, ctrl) {
+                    elm.find('button').on('click', function() {
+                        var uri = encodeURIComponent(scope.$eval(attrs['fbShare']));
+                        console.log(uri);
+                        window.open('https://www.facebook.com/sharer/sharer.php?u=' + uri,
+                            'facebook-share-dialog', 'width=626,height=436');
+                    });
+                }
+            }
+        })
         .filter('toArray', function() {
             return function(input, attribute) {
                 if (!angular.isObject(input)) return input;
@@ -79,7 +91,4 @@
                 return array;
             }
         });
-
-
-
 })(window.utils = window.utils || {});
