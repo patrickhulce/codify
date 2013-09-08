@@ -60,10 +60,18 @@ section {
 .sidebar {
     ul.icons-ul {
         margin-left: 0px;
+        li {
+        	cursor: pointer;
+        	&:hover {
+        		background-color: #eee;
+        	}
+        	&:last-of-type:hover {
+        		background-color: #fff;
+        	}
+        }
     }
 }
 .class-details {
-    font-family:'Droid Sans Mono', sans-serif;
     .header {
         button {
             float: right;
@@ -72,6 +80,7 @@ section {
         }
     }
     .property, .method {
+    font-family:'Droid Sans Mono', sans-serif;
         padding: 5px;
         &:hover {
             background-color: #eee;

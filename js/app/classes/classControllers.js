@@ -13,8 +13,8 @@ angular.module("classes.controllers", ['firebase', 'ui.utils'])
             }
         }
     ])
-    .controller('ClassCtrl', ['$scope', 'angularFire',
-        function($scope, angularFire) {
+    .controller('ClassCtrl', ['$scope', 'angularFire', '$timeout',
+        function($scope, angularFire, $timeout) {
             $scope.getClass = function() {
                 var project = $scope.project;
                 var classId = $scope.selection.classId;
@@ -23,6 +23,17 @@ angular.module("classes.controllers", ['firebase', 'ui.utils'])
                     || project.classes === undefined) return undefined;
                 return project.classes[classId];
             };
-            $scope.cleanView = true;
+            $scope.getPreview = function() {
+                return codeGeneration.python.codeFromClass($scope.getClass());
+            };
+            $timeout(function() {
+                $scope.cleanView = true;
+            },1000);
+
+            $scope.$watch('cleanView',function(newVal) {
+                    $(".toggle-editing").each(function() {
+                        this.contentEditable = newVal === false;
+                    });
+            });
         }
     ]);

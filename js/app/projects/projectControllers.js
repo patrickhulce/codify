@@ -11,7 +11,6 @@ angular.module("projects.controllers", ['firebase','app.utils'])
             		id = key;
             		break;
             	}
-            	console.log("Found key being " + id);
             	if(id == 'foo') return;
             	$scope.selection.classId = id;
             });

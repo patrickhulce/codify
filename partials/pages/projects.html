@@ -13,7 +13,7 @@
         <ul class='list-group'>
             <li ng-repeat="project in projects" class='list-group-item'>
                 <a href='#/projects/{{project.id}}'>{{ project.name }}</a>
-                <div class='share'>
+                <div class='share hidden-xs'>
                     <div class="input-group share-group" fb-share="'http://codify.tk/#/projects/'+project.id">
                         <input type="text" class="form-control input-sm" onClick='this.select()' readonly value="http://localhost:8000/#/projects/{{ project.id }}" />
                         <span class="input-group-btn">
@@ -22,6 +22,7 @@
                         </span>
                     </div>
                 </div>
+                <div class='clearfix'></div>
             </li>
         </ul>
     </div>
