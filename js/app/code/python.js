@@ -14,6 +14,16 @@
         docLines.push('"""');
     }
 
+    var camelCase = function(text) {
+        text = text.replace(/[^a-z ]+/gi, "");
+        var parts = text.split(" ");
+        var newParts = [];
+        for(var i=0;i<parts.length;i++) {
+            newParts.push(parts[i].charAt(0).toUpperCase() + parts[i].substring(1));
+        }
+        return newParts.join("");
+    };
+
     var variablize = function(text) {
         text = text.toLowerCase();
         text = text.replace(/[^a-z0-9 ]+/g, "");
@@ -26,7 +36,7 @@
     }
 
     var headerLines = function(the_class) {
-        return ["class " + the_class.name + "(object):"];
+        return ["class " + camelCase(the_class.name) + "(object):"];
     };
 
     var allPropertyLines = function(properties) {

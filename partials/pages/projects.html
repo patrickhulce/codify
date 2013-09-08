@@ -2,16 +2,16 @@
     <div class="add-project input-group">
         <input type="text" class="form-control input-lg" placeholder="Create a project..." ng-model='projectName' ui-keydown="{'enter':'addProject()'}" />
         <span class="input-group-btn">
-            <button class="btn btn-primary btn-lg">
+            <button class="btn btn-primary btn-lg" ng-click='addProject()'>
                 Go
             </button>
         </span>
     </div>
 
-    <div class='project-list'>
+    <div class='project-list' ng-show='user'>
     	<h2>Recent Projects</h2>
         <ul class='list-group'>
-            <li ng-repeat="project in projects" class='list-group-item'>
+            <li ng-repeat="project in projects | toArray | orderBy:'timestamp':'reverse' | limitTo:5" class='list-group-item'>
                 <a href='#/projects/{{project.id}}'>{{ project.name }}</a>
                 <div class='share hidden-xs'>
                     <div class="input-group share-group" fb-share="'http://codify.tk/#/projects/'+project.id">

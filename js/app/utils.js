@@ -48,7 +48,6 @@
                         scope.$apply(function() {
                             ctrl.$setViewValue(elm.text());
                         });
-                        console.log("blurred with " + elm.text());
                     });
 
                     ctrl.$render = function(value) {

@@ -13,105 +13,11 @@
     </div>
 </div>
 <div class="row">
-    <div class="sidebar col-sm-3 col-md-2">
-        <h3>Classes</h3>
-        <div ng-controller='ClassListCtrl'>
-            <ul class="icons-ul">
-                <li ng-repeat="class in project.classes | toArray | orderBy:'name'" ng-click="selection.classId = class.id">
-                    <i class="icon-li icon-file-text"></i>
-                    <span>{{class.name}}</span>
-                </li>
-                <li>
-                    <i class="icon-li icon-plus"></i>
-                    <input type="text" class='input-styleless' ui-keydown="{'enter' : 'addClass()'}" ng-model="className" placeholder="New file..." />
-                </li>
-            </ul>
-        </div>
-    </div>
+    <ng-include src='"partials/templates/sidebar.html"'></ng-include>
     <div class='class-view col-sm-9 col-md-10' ng-controller='ClassCtrl'>
         <h3 ng-show='!getClass()'>Select a class</h3>
-
-        <div ng-show='getClass()' class="class-details col-md-6">
-            <div class='row header'>
-                <div class='col-sm-9'>
-                    <h3 class='toggle-editing' contenteditable ng-model='project.classes[selection.classId].name' ng-disabled='cleanView'></h3>
-                </div>
-                <div class='col-sm-3 hidden-xs'>
-                    <button class='btn btn-sm' ng-class='{"btn-default" : cleanView, "btn-info" : !cleanView}' ng-click='cleanView = !cleanView'>
-                        <i class='icon-edit'></i> Toggle Editing
-                    </button>
-                </div>
-            </div>
-            <div class='properties' ng-controller='PropertyListCtrl'>
-                <h4>Properties</h4>
-                <div class="property" ng-repeat='property in project.classes[selection.classId].properties'>
-                    <div ng-show='!cleanView' class="buttons">
-                        <button class="btn btn-default" ng-disabled='$index == 0' ng-click='moveProperty($index,-1)'>
-                            <i class="icon-arrow-up"></i>
-                        </button>
-                        <button class="btn btn-default" ng-disabled='$index == project.classes[selection.classId].properties.length -1' ng-click='moveProperty($index,1)'>
-                            <i class="icon-arrow-down"></i>
-                        </button>
-                        <button class="btn btn-danger" ng-click='deleteProperty()'>
-                            <i class="icon-trash"></i>
-                        </button>
-                    </div>
-                    <div class="name toggle-editing" contenteditable ng-model='property.name'></div>
-                    <div class="type toggle-editing" contenteditable='true' ng-model='property.type'></div>
-                    <div class="description toggle-editing" contenteditable='true' ng-model='property.description'></div>
-                </div>
-                <div ng-show='!cleanView' class='add-property'>
-                    <button class='btn btn-sm btn-success' ng-click='addProperty()'><i class='icon-plus'></i> Add Property</button>
-                </div>
-            </div>
-            <div ng-controller='MethodListCtrl'>
-                <h4>Methods</h4>
-                <div class="method" ng-repeat='method in project.classes[selection.classId].methods' ng-controller='MethodCtrl'>
-                    <div ng-show='!cleanView' class="buttons">
-                        <button class="btn btn-default" ng-disabled='$index == 0' ng-click='moveMethod($index,-1)'>
-                            <i class="icon-arrow-up"></i>
-                        </button>
-                        <button class="btn btn-default" ng-disabled='$index == project.classes[selection.classId].methods.length -1' ng-click='moveMethod($index,1)'>
-                            <i class="icon-arrow-down"></i>
-                        </button>
-                        <button class="btn btn-danger" ng-click='deleteMethod()'>
-                            <i class="icon-trash"></i>
-                        </button>
-                    </div>
-                    <div class="name toggle-editing" contenteditable='true' ng-model='method.name'></div>
-                    <div class="type toggle-editing" contenteditable='true' ng-model='method.type'></div>
-                    <div class="description toggle-editing" contenteditable='true' ng-model='method.description'></div>
-                    <div class='arguments'>
-                        <div class="argument" ng-repeat='argument in method.arguments'>
-                            <div ng-show='!cleanView' class="buttons">
-                                <button class="btn btn-default btn-xs" ng-disabled='$index == 0' ng-click='moveArgument($index,-1)'>
-                                    <i class="icon-arrow-up"></i>
-                                </button>
-                                <button class="btn btn-default btn-xs" ng-disabled='$index == method.arguments.length -1' ng-click='moveArgument($index,1)'>
-                                    <i class="icon-arrow-down"></i>
-                                </button>
-                                <button class="btn btn-danger btn-xs" ng-click='deleteArgument()'>
-                                    <i class="icon-trash"></i>
-                                </button>
-                            </div>
-                            <div class="name toggle-editing" contenteditable='true' ng-model='argument.name'></div>
-                            <div class="type toggle-editing" contenteditable='true' ng-model='argument.type'></div>
-                            <div class="description toggle-editing" contenteditable='true' ng-model='argument.description'></div>
-                        </div>
-                        <div ng-show='!cleanView' class='add-argument'>
-                            <button class='btn btn-xs btn-success' ng-click='addArgument()'><i class='icon-plus'></i> Add Argument</button>
-                        </div>
-                    </div>
-                </div>
-                <div ng-show='!cleanView'  class='add-method'>
-                    <button class='btn btn-sm btn-success' ng-click='addMethod()'><i class='icon-plus'></i> Add Method</button>
-                </div>
-            </div>
-        </div>
-        <div ng-show='getClass()' class="class-details col-md-6">
-            <h3>Preview</h3>
-            <pre>{{ getPreview() }}</pre>
-        </div>
+        <ng-include src="'partials/templates/detail-pane.html'"></ng-include>
+        <ng-include src="'partials/templates/code-pane.html'"></ng-include>
 
     </div>
 </div>
