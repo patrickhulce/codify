@@ -41,7 +41,7 @@
         <div class="info">
             <a ng-show='!user' ng-click='login()' class="btn btn-primary"><i class="icon-user"></i> Login</a>
             <a ng-show='user' ng-click='logout()' class="btn btn-primary"><i class="icon-user"></i> Logout</a>
-            <a class="btn btn-info" href='app.html#/projects'><i class="icon-folder-open"></i> Projects</a>
+            <a class="btn btn-info" href='#/projects'><i class="icon-folder-open"></i> Projects</a>
             <div ng-show='user' class='user'>
                 <img ng-src='http://graph.facebook.com/{{ user.id}}/picture?type=square' />
                 <span>{{user.displayName}}</span>
