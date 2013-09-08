@@ -66,7 +66,7 @@
         var declare = "def " + name + "(self";
         var doc = [];
         var args = method.arguments;
-        for (var i = 0; i < args.length; i++) {
+        for (var i = 0; args !== undefined && i < args.length; i++) {
             var argName = variablize(args[i].name);
             var argType = variablize(args[i].type);
             declare += ", " + argName;

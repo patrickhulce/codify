@@ -1,16 +1,15 @@
-
-    <div class="sidebar col-sm-3 col-md-2">
-        <h3>Classes</h3>
-        <div ng-controller='ClassListCtrl'>
-            <ul class="icons-ul">
-                <li ng-repeat="class in project.classes | toArray | orderBy:'name'" ng-click="selection.classId = class.id">
-                    <i class="icon-li icon-file-text"></i>
-                    <span>{{class.name}}</span>
-                </li>
-                <li>
-                    <i class="icon-li icon-plus"></i>
-                    <input type="text" class='input-styleless' ui-keydown="{'enter' : 'addClass()'}" ng-model="className" placeholder="New file..." />
-                </li>
-            </ul>
-        </div>
+<div class="sidebar col-sm-3 col-md-2">
+    <h3>Classes</h3>
+    <div ng-controller='ClassListCtrl'>
+        <ul class="icons-ul">
+            <li ng-repeat="class in project.classes | toArray | orderBy:'name'" ng-click="selection.classId = class.id">
+                <i class="icon-li icon-file-text"></i>
+                <span>{{class.name}}</span>
+            </li>
+            <li>
+                <i class="icon-li icon-plus"></i>
+                <input type="text" class='input-styleless' ui-keydown="{'enter' : 'addClass()'}" ng-model="className" placeholder="New file..." />
+            </li>
+        </ul>
     </div>
+</div>

@@ -10,7 +10,7 @@ angular.module("methods.controllers", ['ui.utils'])
                     "type": "string",
                     "description": "Default description"
                 });
-            }
+            };
 
             $scope.moveMethod = function(index,offset) {
                 var classId = $scope.selection.classId;
