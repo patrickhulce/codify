@@ -1,7 +1,29 @@
-<ul>
-    <li ng-repeat="project in projects">
-        <a href='#/projects/{{project.id}}'>{{ project.name }}</a>
-    </li>
-</ul>
+<div class='projects container'>
+    <div class="add-project input-group">
+        <input type="text" class="form-control input-lg" placeholder="Create a project..." ng-model='projectName' ui-keydown="{'enter':'addProject()'}" />
+        <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg">
+                Go
+            </button>
+        </span>
+    </div>
 
-    <input type="text" ng-model="project_name"/> <button ng-click="addProject()">Add</button>
+    <div class='project-list'>
+    	<h2>Recent Projects</h2>
+        <ul class='list-group'>
+            <li ng-repeat="project in projects" class='list-group-item'>
+                <a href='#/projects/{{project.id}}'>{{ project.name }}</a>
+                <div class='share'>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" onClick='this.select()' readonly value="http://localhost:8000/#/projects/{{ project.id }}" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-sm btn-primary"><i class="icon-share"></i> Share
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

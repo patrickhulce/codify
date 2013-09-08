@@ -109,8 +109,10 @@
             </div>
         </div>
         <div ng-show='getClass()' class="class-details col-md-4">
-            <h3>Edit</h3>
-
+            <h3>Preview</h3>
+            <pre>
+                {{ getPreview() }}
+            </pre>
         </div>
 
     </div>

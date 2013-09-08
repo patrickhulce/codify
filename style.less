@@ -10,7 +10,7 @@ header {
     .brand {
         margin: 0px;
         img {
-        	max-height: 40px;
+            max-height: 40px;
         }
     }
     .search {
@@ -26,83 +26,94 @@ header {
 }
 section {
     padding: 10px 1.5%;
-    .project-header {
-        border-bottom: 1px solid #E5E5E5;
-        min-height: 65px;
-        > * {
-            float: left;
+}
+
+.projects {
+	.add-project {
+		margin-bottom: 30px;
+	}
+	.project-list {
+		.share {
+			max-width: 300px;
+			float: right;
+			margin-top: -5px;
+		}
+	}
+}
+
+.project-header {
+    border-bottom: 1px solid #E5E5E5;
+    min-height: 65px;
+    > * {
+        float: left;
+    }
+    .buttons {
+        float: right;
+        padding-top: 22px;
+        max-width: 400px;
+    }
+}
+.sidebar {
+    ul.icons-ul {
+        margin-left: 0px;
+    }
+}
+.class-details {
+    font-family:'Droid Sans Mono', sans-serif;
+    .header {
+        button {
+            float: right;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+    }
+    .property, .method {
+        padding: 5px;
+        &:hover {
+            background-color: #eee;
         }
         .buttons {
             float: right;
-            padding-top: 22px;
-            max-width: 300px;
+            padding: 3px;
+        }
+        .type {
+            float: left;
+            color: #339;
+        }
+        .name {
+            margin-right: 5px;
+            float: left;
+            color: #333;
+        }
+        .description {
+            clear: left;
+            color: #999;
+            min-height: 15px;
         }
     }
-    .sidebar {
-        ul.icons-ul {
-            margin-left: 0px;
+    .method .arguments {
+        padding-left: 30px;
+        .argument {
+            min-height: 30px;
+            .type, .name, .description {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            div.description {
+                float: left;
+                margin-left: 5px;
+                clear: none;
+            }
         }
     }
-    .class-details {
-        font-family:'Droid Sans Mono', sans-serif;
-        .header {
-        	button {
-        		float: right;
-        		margin-top: 20px;
-        		margin-right: 10px;
-        	}
-        }
-
-        .property, .method {
-            padding: 5px;
-            &:hover {
-                background-color: #eee;
-            }
-            .buttons {
-                float: right;
-                padding: 3px;
-            }
-            .type {
-                float: left;
-                color: #339;
-            }
-            .name {
-                margin-right: 5px;
-                float: left;
-                color: #333;
-            }
-            .description {
-                clear: left;
-                color: #999;
-                min-height: 15px;
-            }
-        }
-        .method .arguments {
-            padding-left: 30px;
-            .argument {
-                min-height: 30px;
-                .type, .name, .description {
-                    padding-top: 5px;
-                    padding-bottom: 5px;
-                }
-                div.description {
-                    float: left;
-                    margin-left: 5px;
-                    clear: none;
-                }
-            }
-        }
-
-        h4 {
-        	border-bottom: 2px solid #99f;
-        	padding: 10px;
-        	margin-top: 40px;
-        }
-
-        .properties h4 {
-        	margin-top: 10px;
-        	border-bottom: 2px solid #9f9;
-        }
+    h4 {
+        border-bottom: 2px solid #99f;
+        padding: 10px;
+        margin-top: 40px;
+    }
+    .properties h4 {
+        margin-top: 10px;
+        border-bottom: 2px solid #9f9;
     }
 }
 .input-styleless {

@@ -24,15 +24,8 @@ angular.module("projects.controllers", ['firebase'])
                 var guid = utils.newGuid();
                 $scope.projects[guid] = {
                     "id": guid,
-                    "name": $scope.project_name,
-                    "isPublic": false,
-                    "details": {
-                        "blah": "boo"
-                    },
-                    "classes": [{
-                        "name": "class1",
-                        "desc": "something"
-                    }]
+                    "name": $scope.projectName,
+                    "public": true
                 };
             }
             var path = app.settings.firebaseUrl + 'projects';
