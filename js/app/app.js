@@ -31,7 +31,7 @@ angular.module("codify", ['projects.controllers', 'classes.controllers', 'proper
                 angularFireAuth.logout();
             }
             $scope.shareUrl = function(projectId) {
-                return "http://codify.tk/app.html/#/projects/" + projectId;
+                return "http://codify.tk/app.html#/projects/" + projectId;
             };
         }
     ]);
