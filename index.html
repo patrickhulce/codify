@@ -1,68 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plan out classes, properties, methods, arguments, and more for your next software project in real-time with co-workers and friends.">
-    <title>Codify | Real-time Collaboration for Software Planning</title>
+
+    <title>Codify | Real-time Software Collaboration</title>
+
+    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet/less" type="text/css" href="style.less" />
-    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-	<script src='//cdn.firebase.com/v0/firebase.js'></script>
-	<script src="//cdn.firebase.com/v0/firebase-simple-login.js"></script>
-	<script src='//cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js'></script>
-    <script src="js/less.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ui-utils.min.js"></script>
-    <script src="js/ui-bootstrap.min.js"></script>
-    <script src="js/ui-bootstrap-tpls.min.js"></script>
-    <script src="js/mousetrap.min.js"></script>
+    <style>
+    html, body {
+        height: 100%;
+    }
+    /* Wrapper for page content to push down footer */
+    #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by its height */
+        margin: 0 auto -60px;
+        /* Pad bottom by footer height */
+        padding: 0 0 60px;
+    }
+    /* Set the fixed height of the footer here */
+    #footer {
+        height: 60px;
+        background-color: #f5f5f5;
+    }
+    .container {
+        width: auto;
+        max-width: 680px;
+        padding: 0 15px;
+    }
+    .container .credit {
+        margin: 20px 0;
+    }
+    a.btn {
+        float: right;
+        margin-top: -7px;
+    }
+    </style>
 </head>
 
-<body ng-app="codify" ng-controller='AppController'>
-    <header>
-        <div class="brand">
-            <img src='img/codify-logo-dark.png'/>
-        </div>
-        <div ng-show='false'class="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for something..." />
-                <span class="input-group-btn">
-                    <button class="btn btn-primary">
-                        <i class="icon-search"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
-        <div class="info">
-            <a ng-show='!user' ng-click='login()' class="btn btn-primary"><i class="icon-user"></i> Login</a>
-            <a ng-show='user' ng-click='logout()' class="btn btn-primary"><i class="icon-user"></i> Logout</a>
-            <a class="btn btn-info" href='#/projects'><i class="icon-folder-open"></i> Projects</a>
-            <div ng-show='user' class='user'>
-            	<img ng-src='http://graph.facebook.com/{{ user.id}}/picture?type=square'/>
-            	<span>{{user.displayName}}</span>
-            	<span ng-show='false'>{{user |json}}</span>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </header>
-    <section ng-view>
-    </section>
-    <footer>
-    </footer>
+<body>
+    <a href="https://github.com/patrickhulce/codify">
+        <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub">
+    </a>
 
+    <div id="wrap">
 
-    <script src='js/app/app.js'></script>
-    <script src='js/app/utils.js'></script>
-    <script src='js/app/projects/projectControllers.js'></script>
-    <script src='js/app/classes/classControllers.js'></script>
-    <script src='js/app/properties/propertyControllers.js'></script>
-    <script src='js/app/methods/methodControllers.js'></script>
-    <script src='js/app/code/python.js'></script>
+        <div class="container">
+            <div class="page-header">
+                <h1>Codify</h1>
+            </div>
+            <p class="lead">Real-time collaboration for planning software.
+                <a class='btn btn-lg btn-primary' href='app.html/#/projects'>Start Codifying!</a>
+            </p>
+            <iframe width="650" height="400" src="//www.youtube.com/embed/7y352u-MYIU" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted credit">Designed and developed by <a href="http://patrickhulce.com/">Patrick Hulce</a>.</p>
+        </div>
+    </div>
 </body>
 
 </html>

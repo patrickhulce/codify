@@ -14,28 +14,24 @@ angular.module("codify", ['projects.controllers', 'classes.controllers', 'proper
             templateUrl: 'partials/pages/project.html',
             controller: "ProjectCtrl"
         }).otherwise({
-        	template: '<div></div>',
-            controller: 'ExternalController'
+            redirectTo: '/projects'
         });
     })
     .controller('AppController', ['$scope', 'angularFireAuth',
         function($scope, angularFireAuth) {
-        	var ref = new Firebase("http://codify.firebaseio.com/");
+            var ref = new Firebase("http://codify.firebaseio.com/");
             angularFireAuth.initialize(ref, {
                 scope: $scope,
                 name: "user"
             });
             $scope.login = function() {
-            	angularFireAuth.login('facebook');
+                angularFireAuth.login('facebook');
             };
             $scope.logout = function() {
-            	angularFireAuth.logout();
+                angularFireAuth.logout();
             }
             $scope.shareUrl = function(projectId) {
-            	return "http://codify.tk/#/projects/" + projectId;
+                return "http://codify.tk/app.html/#/projects/" + projectId;
             };
         }
-    ])
-    .controller('ExternalController',['$window', function($window) {
-    	window.location = "/landing.html";
-    }]);
+    ]);
