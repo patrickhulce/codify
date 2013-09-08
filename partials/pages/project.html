@@ -3,9 +3,9 @@
         <h2 contenteditable='true' ng-model='project.name'></h2>
         <div class="buttons hidden-xs">
             <div class="input-group share-group">
-                <input type="text" class="form-control" onClick='this.select()' readonly value="http://localhost:8000/#/projects/{{ projectId }}" />
+                <input type="text" class="form-control" onClick='this.select()' readonly value="{{shareUrl(project.id)}}" />
                 <span class="input-group-btn">
-                    <button class="btn btn-primary"><i class="icon-share"></i> Share
+                    <button class="btn btn-primary" fb-share="shareUrl(project.id)"><i class="icon-share"></i> Share
                     </button>
                 </span>
             </div>

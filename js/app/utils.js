@@ -70,7 +70,7 @@
         .directive('fbShare', function() {
             return {
                 link: function(scope, elm, attrs, ctrl) {
-                    elm.find('button').on('click', function() {
+                    elm.on('click', function() {
                         var uri = encodeURIComponent(scope.$eval(attrs['fbShare']));
                         console.log(uri);
                         window.open('https://www.facebook.com/sharer/sharer.php?u=' + uri,

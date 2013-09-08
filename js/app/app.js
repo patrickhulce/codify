@@ -14,7 +14,8 @@ angular.module("codify", ['projects.controllers', 'classes.controllers', 'proper
             templateUrl: 'partials/pages/project.html',
             controller: "ProjectCtrl"
         }).otherwise({
-            redirectTo: '/projects'
+        	template: '<div></div>',
+            controller: 'ExternalController'
         });
     })
     .controller('AppController', ['$scope', 'angularFireAuth',
@@ -30,5 +31,11 @@ angular.module("codify", ['projects.controllers', 'classes.controllers', 'proper
             $scope.logout = function() {
             	angularFireAuth.logout();
             }
+            $scope.shareUrl = function(projectId) {
+            	return "http://codify.tk/#/projects/" + projectId;
+            };
         }
-    ]);
+    ])
+    .controller('ExternalController',['$window', function($window) {
+    	window.location = "/landing.html";
+    }]);

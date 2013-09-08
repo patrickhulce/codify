@@ -14,10 +14,10 @@
             <li ng-repeat="project in projects | toArray | orderBy:'timestamp':'reverse' | limitTo:5" class='list-group-item'>
                 <a href='#/projects/{{project.id}}'>{{ project.name }}</a>
                 <div class='share hidden-xs'>
-                    <div class="input-group share-group" fb-share="'http://codify.tk/#/projects/'+project.id">
-                        <input type="text" class="form-control input-sm" onClick='this.select()' readonly value="http://localhost:8000/#/projects/{{ project.id }}" />
+                    <div class="input-group share-group">
+                        <input type="text" class="form-control input-sm" onClick='this.select()' readonly value="{{ shareUrl(project.id) }}" />
                         <span class="input-group-btn">
-                            <button class="btn btn-sm btn-primary"><i class="icon-share"></i> Share
+                            <button class="btn btn-sm btn-primary" fb-share="shareUrl(project.id)"><i class="icon-share"></i> Share
                             </button>
                         </span>
                     </div>
